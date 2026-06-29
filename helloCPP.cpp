@@ -1,6 +1,16 @@
 #include <iostream>
+#include <fstream>
+using namespace std;
 
 int main() {
-    std::cout << "Hello World! Can you see me?" << std::endl;
+    ifstream inFile("user.txt");
+    string line;
+    inFile>>line;
+    inFile.close();
+    ofstream outFile("hello.txt");
+    outFile <<"Hello, " << line << "!\n";
+    outFile.close();
+    
+    cout << "File created and written successfully!\n";
     return 0;
 }
