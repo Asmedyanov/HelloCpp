@@ -1,2 +1,2 @@
-a b c
-1 4 1
+Amplitude Omega Phi0 Time_start Time_end Time_step
+1 4 0 0 6.28 1e-2
