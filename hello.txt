@@ -1,1 +1,3 @@
-Hello, user!
+Equation: 1.00x^2+4.00x+1.00=0
+Discriminant: 12.00
+Roots: -0.27, -3.73
