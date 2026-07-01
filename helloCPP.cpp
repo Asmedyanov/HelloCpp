@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
 #include <iomanip>
@@ -10,7 +11,50 @@
 using namespace std;
 using namespace H5;
 
+class main_parameters {
+public:
+    float l_wire, r_wire,dr_wire,r_water,dr_water,t_min,t_max,dt_min;
+    int n_h5,n_png,n_proc;
+    main_parameters(string filename) {
+        ifstream inFile(filename);
+         string line;
+
+        // skip header line: "Parameter,Value,Comment"
+        getline(inFile, line);
+
+        while (getline(inFile, line)) {
+            if (line.empty()) continue;
+
+            // split line by commas
+            stringstream ss(line);
+            string name, valueStr, comment;
+            getline(ss, name, ',');
+            getline(ss, valueStr, ',');
+            getline(ss, comment, ',');
+
+            float value = stof(valueStr);
+
+            if      (name == "l_wire")  l_wire  = value;
+            else if (name == "r_wire")  r_wire  = value;
+            else if (name == "dr_wire") dr_wire = value;
+            else if (name == "r_water") r_water = value;
+            else if (name == "dr_water")dr_water= value;
+            else if (name == "t_min")   t_min   = value;
+            else if (name == "t_max")   t_max   = value;
+            else if (name == "dt_min")  dt_min  = value;
+            else if (name == "n_h5")    n_h5    = (int)value;
+            else if (name == "n_png")   n_png   = (int)value;
+            else if (name == "n_proc")  n_proc  = (int)value;
+        }
+
+
+        inFile.close();
+    }
+};
+
 int main() {
+
+    main_parameters main_parameter("input/parameters.csv");
     ifstream inFile("user.txt");
     string names;
     getline(inFile, names);

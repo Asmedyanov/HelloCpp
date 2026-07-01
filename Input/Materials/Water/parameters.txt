@@ -1,0 +1,6 @@
+name = Water n.d.
+polytropic_index_n = 7.15 n.d.
+polytropi_constant_A = 3e-3 Mbar
+power_heat_capacity_cap = 5.97e-2 J/(kg*us)
+viscosity_0 = 30.0 n.d.
+viscosity_1 = 30.0e0 n.d.

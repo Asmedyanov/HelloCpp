@@ -1,0 +1,6 @@
+name = Cu n.d.
+polytropic_index_n = 4.0 n.d.
+polytropi_constant_A = 0.25 Mbar
+power_heat_capacity_cap = 421e-5 J/(kg*us)
+viscosity_0 = 1.0e-4 n.d.
+viscosity_1 = 30.0e0 n.d.
