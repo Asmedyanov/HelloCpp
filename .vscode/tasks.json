@@ -5,11 +5,16 @@
             "label": "C/C++: cl.exe build active file",
             "command": "cl.exe",
             "args": [
-                "/Zi",
-                "/EHsc",
-                "/nologo",
-                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}"
+                    "/Zi",
+                    "/EHsc",
+                    "/nologo",
+                    "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+                    "/IC:\\vcpkg\\installed\\x64-windows\\include",
+                    "${file}",
+                    "/link",
+                    "/LIBPATH:C:\\vcpkg\\installed\\x64-windows\\lib",
+                    "hdf5_cpp.lib",
+                    "hdf5.lib"
             ],
             "options": {
                 "cwd": "${fileDirname}"
